@@ -1,5 +1,6 @@
 class ride():
-    def __init__(self, a, b, x, y, s, f):
+    def __init__(self,sid, a, b, x, y, s, f):
+        self.id = sid
         self.a = a
         self.b = b
         self.x = x
