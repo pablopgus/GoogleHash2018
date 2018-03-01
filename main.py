@@ -5,7 +5,7 @@ import ride
 def getLibreVehicle(vlis):
     for v in len(vlis):
         if v.r < 0:
-            return v;
+            return v
     return -1
 
 class vehicle():
@@ -17,10 +17,7 @@ class vehicle():
 
 # Acquire the problem.
 p = my_parser.run('a_example.in')
-
 p.rideList.sort()
-vlis = []
-for element in range(p.F):
-    vlis.append(vehicle)
-contp = 0
-#for t in range(p.T):
+
+for elem in p.rideList:
+    print(elem.id)
