@@ -43,15 +43,26 @@ class Solution():
         points = -10000000000000000000000000
         sid = -1
         i = 0
-        while (i<20 and i < len(self.P.rideList)):
+        while (i<50 and i < len(self.P.rideList)):
             r = self.P.rideList[i]
+            j = i
+
+            p = -10000000000000000000000000
+
+            while(j < 50 and j < len(self.P.rideList)):
+                temp = self.P.rideList[j]
+                d = abs(temp.a - r.x) + abs(temp.b - r.y)
+                if( d < 10 ):
+                    p += 10000000000000000000000000000000
+                j += 1
+
+
             alpha = 1
             beta = 1
             gamma = 1
             epsilon = 1
 
 
-            p = -10000000000000000000000000
             dvp = self.distanceVR(v, r)
             p -= gamma*dvp
 
@@ -74,8 +85,6 @@ class Solution():
             for v in v_list:
                 if(len(self.P.rideList) > 0):
                     ride = self.getRide(v)
-                    #ride = self.P.rideList.pop(0)
-
                     if(ride is not None):
                         v.r = ride.id
                         v.dx = ride.x
