@@ -7,15 +7,16 @@ def run(file):
     file_ = open(file)
 
     first_line = file_.readline()
-    print(first_line)
+    tmp = re.split(" ", first_line)
+    p = problem.problem(tmp[0], tmp[1], tmp[2], tmp[3], tmp[4], tmp[5])
 
     line = file_.readline()
     while line:
         tmp = re.split(" ", line)
-        print(tmp)
+        r = ride.ride(tmp[0], tmp[1], tmp[2], tmp[3], tmp[4], tmp[5])
+        p.append_ride(r)
         line = file_.readline()
 
-    prob = []
-    return prob
+    return p
 
 
