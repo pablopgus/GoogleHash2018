@@ -7,4 +7,6 @@ class problem():
         self.B = B
         self.T = T
 
+        self.rideList  = []
+
 
