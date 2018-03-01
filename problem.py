@@ -1,4 +1,4 @@
-def problem():
+class problem():
     def __init__(self, R, C, F, N, B, T):
         self.R = R
         self.C = C
