@@ -1,3 +1,3 @@
-print(s)
-print("hol")
-print(s[::-1])
+import my_parser
+
+my_parser.run('a_example.in')

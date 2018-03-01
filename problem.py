@@ -6,7 +6,6 @@ class problem():
         self.N = N
         self.B = B
         self.T = T
-
         self.rideList  = []
 
 
