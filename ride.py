@@ -27,4 +27,4 @@ class ride():
         return (self.f, -self.s) >= (other.f, -other.s)
 
     def __repr__(self):
-        return "%s %s" % (self.f, self.s)
+        return "%s" % (self.id)
