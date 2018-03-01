@@ -24,6 +24,8 @@ class Solution():
             i = i + 1
             self.rideSols.append([])
 
+    def distanceVR(self,veh, ride):
+        return abs(veh.x - ride.a) + abs(veh.y - ride.b)
 
     def getLibreVehicle(self):
         res = []
@@ -32,12 +34,38 @@ class Solution():
                 res.append(v)
         return res
 
+    def getRide(self,v):
+        ride = None
+        points = -1
+        i = 0
+        while(i < 20 and i < len(self.P.rideList)):
+            r = self.P.rideList[i]
+            alpha = 20
+            beta = 1
+            p = 0
+            dvp = self.distanceVR(v,r)
+
+            #if( (self.current_step + r.d + dvp) <= r.f):
+            #    p = alpha*r.d;
+
+            #if( ( (self.current_step + dvp) - r.s ) < 2):
+            #    p = p + beta*self.P.B
+
+            if( p > points ):
+                ride = self.P.rideList.pop(i);
+            i += 1
+
+        return ride
+
+
+
     def step(self):
         v_list = self.getLibreVehicle()
         # Asignar rides a vehiculos.
         if len(v_list) > 0:
             for v in v_list:
                 if(len(self.P.rideList) > 0):
+                    #ride = self.getRide(v)
                     ride = self.P.rideList.pop(0)
                     if(ride is not None):
                         v.r = ride.id
@@ -61,8 +89,10 @@ class Solution():
                 v.r = -1
 
     def solve(self):
+        self.current_step = 0
         for t in range(self.P.T):
             self.step()  # Selección de vehiculo.
+            self.current_step += 1
 
         # Print solution.
         f = open(self.file, 'w')

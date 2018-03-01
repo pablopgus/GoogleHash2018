@@ -7,6 +7,7 @@ class ride():
         self.y = y
         self.s = s
         self.f = f
+        self.d = abs(a - x) + abs(b - y)
 
     def __eq__(self, other):
         return (self.f, self.s) == (other.f, other.s)
